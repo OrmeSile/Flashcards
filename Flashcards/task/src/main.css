@@ -2,9 +2,20 @@
 *{
     font-family: "Roboto",sans-serif;
 }
+/*caption{
+    font-size: 30pt;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange,red);
+    background-clip: text;
+    color: transparent;
+}*/
+/*table{
+    font-family: "Papyrus", Serif;
+    border: #6472c9 outset 40px;
+    position: relative;
+    object-position: center bottom;
+}*/
 body{
     background: #75b7aa;
-
 }
 #quiz-area{
     background-color: rgba(255,255,180,0.2);
@@ -29,12 +40,39 @@ body{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
-.question{
+.card{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+    transition: all 0.5s linear;
+    transform-style: preserve-3d;
+
+}
+.front,.back{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-size: 14pt;
+    justify-content: center;
+    align-items: center;
     border-radius: 6px;
     background-color: white;
-    width: 1fr;
-    height: 1fr;
-    text-align: center;
-    font-size: 14pt;
-
+    position: absolute;
+}
+.container{
+    transform-style: preserve-3d;
+    display: flex;
+}
+.back{
+    transform: rotateY(180deg) rotateX(0deg);
+    backface-visibility: hidden;
+}
+.front{
+    transform: rotateX(0deg);
+    z-index: 1;
+    backface-visibility: hidden;
+}
+.container:hover .card{
+    transform: rotateY(180deg);
 }
